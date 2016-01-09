@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chat</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="..\css\style.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="..\js\angular.min.js"></script>
+
+    <script type="text/javascript" src="..\js\app.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body style="padding: 34px 0; position: absolute; height: 100%; width: 100%; background-color: #f9f9f9;" ng-controller="msgCtrl">
+    <!-- menu -->
+    <div style="position: fixed; top:0; width: 100%; z-index: 5;">
+      <div class="clearfix bg-primary">
+        <a class="btn btn-primary pull-left" style="color: inherit;" href="#">
+          <i class="fa fa-arrow-left"></i> 聊天室
+        </a>
+        <div class="btn-group pull-right">
+          <a class="btn btn-primary" style="color: inherit;">
+            <i class="fa fa-users"></i>
+          </a>
+          <a class="btn btn-primary" style="color: inherit;">
+            <i class="fa fa-cog"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- message area -->
+    <div class="block-msg">
+
+      <!-- new guy -->
+      <p class="text-muted text-center">
+        <small>BBBBBB 加入群組</small>
+      </p>
+
+      <!-- someone leave -->
+      <p class="text-muted text-center">
+        <small>BBBBBB 離開群組</small>
+      </p>
+
+      <!-- msg item -->
+      <div class="item-msg item-msg-myself">
+          <!-- date time -->
+          <div class="text-center text-muted">
+            <small>2015/12/28 16:00</small>
+          </div>
+
+          <div style="padding-left: 44px;">
+            <!-- name -->
+            <div class="msg-name">魯蛇大神</div>
+
+            <div style="position: relative;">
+              <!-- thumicon -->
+              <div class="msg-thumicon">
+                <img src="https://unsplash.it/40/40/?blur" class="img-circle">
+              </div>
+              <!-- msg -->
+              <div class="msg-text">
+                訊息文字<br />
+                訊息文字訊息文字訊息文字訊息
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+            <!-- read -->
+            <div class="msg-read">A、B、C、D、E、F已讀</div>
+          </div>
+      </div><!-- End msg item -->
+
+
+      <!-- msg item -->
+      <div class="item-msg" ng-class="{'item-msg-myself': msg.name == loginUser}" ng-repeat="msg in msgs">
+          <!-- date time -->
+          <div class="text-center text-muted">
+            <small>{{msg.datetime | date:'yyyy/MM/dd HH:mm'}}</small>
+          </div>
+
+          <div style="padding-left: 44px;">
+            <!-- name -->
+            <div class="msg-name">{{msg.name}}</div>
+
+            <div style="position: relative;">
+              <!-- thumicon -->
+              <div class="msg-thumicon">
+                <img src="https://unsplash.it/40/40/?blur" class="img-circle">
+              </div>
+              <!-- msg -->
+              <div class="msg-text">
+                {{msg.text}}
+              </div>
+              <div class="clearfix"></div>
+            </div>
+            <!-- read -->
+            <div class="msg-read">A、B、C、D、E、F已讀</div>
+          </div>
+      </div><!-- End msg item -->
+
+    </div><!-- End message area -->
+
+    <!-- write message -->
+    <div class="input-group" style="position: fixed; bottom: 0; z-index: 5;">
+      <input type="text" class="form-control" placeholder="寫訊息" ng-model="text">
+      <span class="input-group-btn">
+        <a class="btn btn-primary" ng-click="send()">
+          <i class="fa fa-paper-plane"></i>
+        </a>
+      </span>
+    </div>
+
+  </body>
+</html>

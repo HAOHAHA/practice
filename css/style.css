@@ -1,0 +1,65 @@
+body {
+  font-family: Microsoft JhengHei;
+}
+
+/*---------------------------------*/
+/*----- 其他人 -----*/
+
+/* 發文者大頭貼 */
+.msg-thumicon {
+  position: absolute;
+  left: -44px;
+  bottom: 0;
+}
+/* 發文者、已讀者 */
+.msg-name, .msg-read {
+  padding: 0 15px;
+  color: #999;
+  font-size: 80%;
+}
+/* 訊息文字 */
+.msg-text {
+  display: inline-block;
+  max-width: 100%;
+  background-color: #e4e8eb;
+  padding: 10px 15px;
+  border-radius: 18px;
+  word-wrap: break-word;
+}
+
+/*----- 自己 -----*/
+
+/* 發文者大頭貼 */
+.item-msg-myself .msg-thumicon {
+  display: none;
+}
+/* 發文者 */
+.item-msg-myself .msg-name{
+  display: none;
+}
+/* 訊息文字 */
+.item-msg-myself .msg-text {
+  float: right;
+  text-align: right;
+  background-color: #d9edf7;
+}
+/* 已讀者 */
+.item-msg-myself .msg-read {
+  text-align: right;
+}
+
+
+/*---------------------------------*/
+.block-msg {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height:100%;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  padding: 0 16px;
+}
+
+.item-msg {
+  clear: both;
+}
